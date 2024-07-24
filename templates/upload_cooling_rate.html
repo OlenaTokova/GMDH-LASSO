@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Upload Cooling Rate Data</h2>
+<form action="" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="file" class="form-label">Please upload your data file in CSV format. The file should contain the following columns: Austempering Temperature (°C), Austempering Time (minutes), Initial Temperature (°C), Carbon (%), Silicon (%), Manganese (%), Sulfur (%), Phosphorus (%), Chromium (%), Nickel (%), Molybdenum (%), Cooling Rate (°C/min), Tensile Strength (MPa), Hardness (HB), Elongation (%).</label>
+        <input type="file" class="form-control" id="file" name="file" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Upload</button>
+</form>
+{% if message %}
+<div class="alert alert-success" role="alert">
+    {{ message }}
+</div>
+{% endif %}
+{% if error %}
+<div class="alert alert-danger" role="alert">
+    {{ error }}
+</div>
+{% endif %}
+{% endblock %}

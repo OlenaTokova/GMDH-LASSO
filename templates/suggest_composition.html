@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Suggest Alloy Composition</h2>
+<form action="" method="post">
+    <div class="mb-3">
+        <label for="desired_tensile_strength" class="form-label">Desired Tensile Strength (MPa)</label>
+        <input type="number" step="0.01" class="form-control" id="desired_tensile_strength" name="desired_tensile_strength" required>
+    </div>
+    <div class="mb-3">
+        <label for="desired_hardness" class="form-label">Desired Hardness (HB)</label>
+        <input type="number" step="0.01" class="form-control" id="desired_hardness" name="desired_hardness" required>
+    </div>
+    <div class="mb-3">
+        <label for="desired_elongation" class="form-label">Desired Elongation (%)</label>
+        <input type="number" step="0.01" class="form-control" id="desired_elongation" name="desired_elongation" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Suggest Composition</button>
+</form>
+
+{% if suggested_composition %}
+<h3>Suggested Alloy Composition:</h3>
+<ul>
+    <li>Austempering Temperature (°C): {{ suggested_composition['Austempering Temperature (°C)'] }}</li>
+    <li>Austempering Time (minutes): {{ suggested_composition['Austempering Time (minutes)'] }}</li>
+    <li>Initial Temperature (°C): {{ suggested_composition['Initial Temperature (°C)'] }}</li>
+    <li>Carbon (%): {{ suggested_composition['Carbon (%)'] }}</li>
+    <li>Silicon (%): {{ suggested_composition['Silicon (%)'] }}</li>
+    <li>Manganese (%): {{ suggested_composition['Manganese (%)'] }}</li>
+    <li>Sulfur (%): {{ suggested_composition['Sulfur (%)'] }}</li>
+    <li>Phosphorus (%): {{ suggested_composition['Phosphorus (%)'] }}</li>
+    <li>Chromium (%): {{ suggested_composition['Chromium (%)'] }}</li>
+    <li>Nickel (%): {{ suggested_composition['Nickel (%)'] }}</li>
+    <li>Molybdenum (%): {{ suggested_composition['Molybdenum (%)'] }}</li>
+    <li>Thermal Conductivity (W/m·K): {{ suggested_composition['Thermal Conductivity (W/m·K)'] }}</li>
+    <li>Specific Heat (J/kg·K): {{ suggested_composition['Specific Heat (J/kg·K)'] }}</li>
+    <li>Melting Temperature (°C): {{ suggested_composition['Melting Temperature (°C)'] }}</li>
+</ul>
+{% endif %}
+{% if error %}
+<div class="alert alert-danger" role="alert">
+    {{ error }}
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Model Training Results</h2>
+<p>Best Model: {{ best_model_name }}</p>
+<p>Mean Squared Error: {{ best_mse }}</p>
+<a href="{{ url_for('download_model') }}" class="btn btn-primary">Download Best Model</a>
+{% if mse_values %}
+<h3>MSE Values for Different Models:</h3>
+<ul>
+    {% for model, mse in mse_values.items() %}
+    <li>{{ model }}: {{ mse }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

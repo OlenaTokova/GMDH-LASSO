@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Predict Cooling Rate</h2>
+<form action="" method="post">
+    <div class="mb-3">
+        <label for="austempering_temperature" class="form-label">Austempering Temperature (°C)</label>
+        <input type="number" step="0.01" class="form-control" id="austempering_temperature" name="austempering_temperature" required>
+    </div>
+    <div class="mb-3">
+        <label for="austempering_time" class="form-label">Austempering Time (minutes)</label>
+        <input type="number" step="0.01" class="form-control" id="austempering_time" name="austempering_time" required>
+    </div>
+    <div class="mb-3">
+        <label for="initial_temperature" class="form-label">Initial Temperature (°C)</label>
+        <input type="number" step="0.01" class="form-control" id="initial_temperature" name="initial_temperature" required>
+    </div>
+    <div class="mb-3">
+        <label for="carbon" class="form-label">Carbon (%)</label>
+        <input type="number" step="0.01" class="form-control" id="carbon" name="carbon" required>
+    </div>
+    <div class="mb-3">
+        <label for="silicon" class="form-label">Silicon (%)</label>
+        <input type="number" step="0.01" class="form-control" id="silicon" name="silicon" required>
+    </div>
+    <div class="mb-3">
+        <label for="manganese" class="form-label">Manganese (%)</label>
+        <input type="number" step="0.01" class="form-control" id="manganese" name="manganese" required>
+    </div>
+    <div class="mb-3">
+        <label for="sulfur" class="form-label">Sulfur (%)</label>
+        <input type="number" step="0.01" class="form-control" id="sulfur" name="sulfur" required>
+    </div>
+    <div class="mb-3">
+        <label for="phosphorus" class="form-label">Phosphorus (%)</label>
+        <input type="number" step="0.01" class="form-control" id="phosphorus" name="phosphorus" required>
+    </div>
+    <div class="mb-3">
+        <label for="chromium" class="form-label">Chromium (%)</label>
+        <input type="number" step="0.01" class="form-control" id="chromium" name="chromium" required>
+    </div>
+    <div class="mb-3">
+        <label for="nickel" class="form-label">Nickel (%)</label>
+        <input type="number" step="0.01" class="form-control" id="nickel" name="nickel" required>
+    </div>
+    <div class="mb-3">
+        <label for="molybdenum" class="form-label">Molybdenum (%)</label>
+        <input type="number" step="0.01" class="form-control" id="molybdenum" name="molybdenum" required>
+    </div>
+    <div class="mb-3">
+        <label for="tensile_strength" class="form-label">Tensile Strength (MPa)</label>
+        <input type="number" step="0.01" class="form-control" id="tensile_strength" name="tensile_strength" required>
+    </div>
+    <div class="mb-3">
+        <label for="hardness" class="form-label">Hardness (HB)</label>
+        <input type="number" step="0.01" class="form-control" id="hardness" name="hardness" required>
+    </div>
+    <div class="mb-3">
+        <label for="elongation" class="form-label">Elongation (%)</label>
+        <input type="number" step="0.01" class="form-control" id="elongation" name="elongation" required>
+    </div>
+    <div class="mb-3">
+        <label for="thermal_conductivity" class="form-label">Thermal Conductivity (W/m·K)</label>
+        <input type="number" step="0.01" class="form-control" id="thermal_conductivity" name="thermal_conductivity" required>
+    </div>
+    <div class="mb-3">
+        <label for="specific_heat" class="form-label">Specific Heat (J/kg·K)</label>
+        <input type="number" step="0.01" class="form-control" id="specific_heat" name="specific_heat" required>
+    </div>
+    <div class="mb-3">
+        <label for="melting_temperature" class="form-label">Melting Temperature (°C)</label>
+        <input type="number" step="0.01" class="form-control" id="melting_temperature" name="melting_temperature" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Predict</button>
+</form>
+
+{% if predicted_cooling_rate %}
+<h3>Predicted Cooling Rate:</h3>
+<p>{{ predicted_cooling_rate }}</p>
+{% endif %}
+{% if error %}
+<div class="alert alert-danger" role="alert">
+    {{ error }}
+</div>
+{% endif %}
+{% endblock %}
+

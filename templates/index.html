@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooling Rate Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Cooling Rate Prediction</h1>
+        <a href="{{ url_for('upload_cooling_rate') }}" class="btn btn-primary">Upload Cooling Rate Data</a>
+        <a href="{{ url_for('train_model') }}" class="btn btn-primary">Train Model</a>
+        <a href="{{ url_for('predict') }}" class="btn btn-primary">Predict Cooling Rate</a>
+        <a href="{{ url_for('upload_composition') }}" class="btn btn-primary">Upload Composition Data</a>
+        <a href="{{ url_for('suggest_composition') }}" class="btn btn-primary">Suggest Composition</a>
+    </div>
+</body>
+</html>
